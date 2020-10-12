@@ -20,20 +20,20 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        My_name = type(self).__name__
-        My_id = self.id
-        My_dict = self.__dict__
-        return ("[{}] ({}) {}".format(My_name,
-                                      My_id,
-                                      My_dict))
+        my_name = type(self).__name__
+        my_id = self.id
+        my_dict = self.__dict__
+        return ("[{}] ({}) {}".format(my_name,
+                                      my_id,
+                                      my_dict))
 
     def save(self):
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        My_dict = self.__dict__.copy()
-        My_dict["__class__"] = type(self).__name__
-        My_dict["created_at"] = self.created_at.isoformat()
-        My_dict["updated_at"] = self.updated_at.isoformat()
-        return My_dict
+        my_dict = self.__dict__.copy()
+        my_dict["__class__"] = type(self).__name__
+        my_dict["created_at"] = self.created_at.isoformat()
+        my_dict["updated_at"] = self.updated_at.isoformat()
+        return my_dict
